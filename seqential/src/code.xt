@@ -1,0 +1,16 @@
+ADD  x6, x1, x2      # x6  = x1 + x2  = 10 + 5 = 15
+SUB  x7, x3, x4      # x7  = x3 - x4  = 1765 - 281 = 1484
+BEQ  x5, x6, 5       # If x5 == x6, branch taken (PC += 5 instructions) (branch taken)
+NOP                  # No operation (placeholder for 00)
+NOP
+NOP
+NOP
+AND  x8, x3, x4      # x8  = x3 & x4  = 1
+OR   x9, x3, x4      # x9  = x3 | x4  = 2045
+SD   x6, 10(x0)      # Store x5 at memory[10] (mem[10] = 15)
+SD   x9, 1(x5)       # Store x9 at memory[x5 + 1] (mem[16] = 2045)
+BEQ  x1, x2, 10      # If x1 == x2, branch taken (not taken in this case)
+LD   x10, 10(x1)      # Load x10 = mem[10] = 15
+LD   x11, 16(x0)     # Load x11 = mem[16] = 2045
+ADD  x12, x10, x11   # x12 = x10 + x11 = 15 + 2045 = 2060
+ADD  x0, x1, x2      # x0 should not change
